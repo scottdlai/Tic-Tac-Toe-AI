@@ -2,76 +2,84 @@ import { calculateWinner } from "./calculateWinner";
 import { isFull } from "./isFull";
 import {evaluate} from "./evaluate.js";
 import { human } from "./human.js";
-
+import { computer } from "./computer.js";
 
 export function nextMove(board) {
-  let bestMoveEval;
-  let bestMove;
+  let bestMoveEval = -Infinity;
+  let bestMoveRow;
+  let bestMoveColumn;
+  let score;
 
   for (let row = 0; row < 3; row++) {
 
     for (let column = 0; column < 3; column++) {
 
-      if (board[row][column]) {
-        let newBoard = board;
-        newBoard[row][column] = "O";
+      if (!board[row][column]) {
+        board[row][column] = computer;
 
-        let score = minimax(newBoard, 0, false);
+        score = minimax(board, 0, true);
+        board[row][column] = ""
 
         if (score > bestMoveEval) {
           bestMoveEval = score;
-          bestMove = {row, column}
+          bestMoveRow = row;
+          bestMoveColumn = column;
         }
       }
     }
-  }
 
-  return bestMove;
+}
+
+  board[bestMoveRow][bestMoveColumn] = computer;
 }
 
 function minimax(board, depth, isMinimizing) {
-
-  if(calculateWinner(board) !== "TIE" || isFull(board)) {
+  if (calculateWinner(board) !== "TIE" || isFull(board)) {
     return evaluate(board);
   }
 
-  let bestVal;
-  // Minimizing player
+  let bestEval;
   if (isMinimizing) {
-    bestVal = Infinity;
+    bestEval = Infinity;
 
     for (let row = 0; row < 3; row++) {
 
       for (let column = 0; column < 3; column++) {
 
-        if (board[row][column]) {
-          let newBoard = board;
-          newBoard[row][column] = "X";
+        if (!board[row][column]) {
+          board[row][column] = human;
+          let score = minimax(board, depth + 1, false);
+          board[row][column] = "";
 
-          let score = minimax(newBoard, depth + 1, false);
-          bestVal = score < bestVal ? score : bestVal;
+          bestEval = min(bestEval, score);
         }
       }
-
     }
-    // Maximimzing player
   } else {
-    bestVal = -Infinity;
+    bestEval = -Infinity;
 
     for (let row = 0; row < 3; row++) {
-      
+
       for (let column = 0; column < 3; column++) {
 
-        if ((board[row][column])) {
-          let newBoard = board;
-          newBoard[row][column] = "O";
+        if (!board[row][column]) {
+          board[row][column] = computer;
+          let score = minimax(board, depth + 1, true);
+          board[row][column] = "";
 
-          let score = minimax(newBoard, depth + 1, true);
-          bestVal = score > bestVal ? score : bestVal;
+          bestEval = max(bestEval, score);
         }
       }
     }
   }
 
-  return bestVal;
+  return bestEval
 }
+
+function min(a, b) {
+  return a < b ? a : b;
+}
+
+function max(a, b) {
+  return a > b ? a : b;
+} 

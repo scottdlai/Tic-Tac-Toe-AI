@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { calculateWinner } from './calculateWinner.js';
 import { isFull } from './isFull.js';
-import { FaRedoAlt } from "react-icons/fa";
+import { nextMove } from "./nextMove.js";
 import { human } from "./human.js";
 import { computer } from "./computer.js";
 
@@ -60,27 +60,35 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      computerNext: true,
+      humanNext: true,
     }
   }
 
   handleClick(row, column) {
     const squares = this.state.squares.slice();
 
-    if (calculateWinner(squares) !== "TIE" || isFull(squares)
-      || squares[row][column]) {
+    if (squares[row][column]) {
+      return;
+    }
+
+    if (calculateWinner(squares) !== "TIE" || isFull(squares)) {
       return (
         <button onClick={() => this.clearBoard()}>
-          REPLAY <FaRedoAlt />
+          REPLAY
         </button>
       );
     }
 
-    squares[row][column] = this.state.computerNext ? 'X' : 'O';
+    squares[row][column] = human;
+
     this.setState({
       squares: squares,
-      computerNext: !this.state.computerNext,
+      humanNext: !this.state.humanNext,
     });
+
+    if (!isFull(squares)) {
+      nextMove(squares);
+    }
   }
 
   clearBoard() {
@@ -90,7 +98,7 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      computerNext: true,
+      humanNext: false,
     });
   }
 
@@ -108,7 +116,7 @@ class Game extends React.Component {
         REPLAY
         </button>
     } else {
-      status = 'Next Player: ' + (this.state.computerNext ? 'X' : 'O');
+      status = 'Next Player: ' + (this.state.humanNext ? 'X' : 'O');
     }
 
     return (
