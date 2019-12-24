@@ -4,9 +4,11 @@ import './index.css';
 import { calculateWinner } from './calculateWinner.js';
 import { isFull } from './isFull.js';
 import { FaRedoAlt } from "react-icons/fa";
+import { human } from "./human.js";
+import { computer } from "./computer.js";
 
 function Square(props) {
-  const squareClass = "square " + (props.value === "X" ? "x" : "o");
+  const squareClass = "square " + (props.value === human ? human : computer);
 
   return (
     <button className={squareClass} onClick={props.onClick}>
@@ -54,11 +56,11 @@ class Game extends React.Component {
     super(props);
     this.state = {
       squares: [
-        [null, null, null],
-        [null, null, null],
-        [null, null, null]
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""]
       ],
-      xIsNext: true,
+      computerNext: true,
     }
   }
 
@@ -74,21 +76,21 @@ class Game extends React.Component {
       );
     }
 
-    squares[row][column] = this.state.xIsNext ? 'X' : 'O';
+    squares[row][column] = this.state.computerNext ? 'X' : 'O';
     this.setState({
       squares: squares,
-      xIsNext: !this.state.xIsNext,
+      computerNext: !this.state.computerNext,
     });
   }
 
   clearBoard() {
     this.setState({
       squares: [
-        [null, null, null],
-        [null, null, null],
-        [null, null, null]
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""]
       ],
-      xIsNext: true,
+      computerNext: true,
     });
   }
 
@@ -106,7 +108,7 @@ class Game extends React.Component {
         REPLAY
         </button>
     } else {
-      status = 'Next Player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next Player: ' + (this.state.computerNext ? 'X' : 'O');
     }
 
     return (
