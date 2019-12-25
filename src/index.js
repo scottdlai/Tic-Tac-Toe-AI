@@ -43,9 +43,7 @@ class Board extends React.Component {
 
   render() {
     return (
-      <>
-        {this.createBoard()}
-      </>
+      <>{this.createBoard()}</>
     );
   }
 }
@@ -60,7 +58,7 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      humanFirst: false,
+      humanFirst: true,
     }
   }
 
@@ -95,7 +93,6 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      humanFirst: !this.state.humanFirst,
     });
   }
 

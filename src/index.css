@@ -29,6 +29,9 @@ body {
   float: left;
 }
 
+.square:focus {
+  outline: none;
+}
 
 .X {
   color: #E60F31;

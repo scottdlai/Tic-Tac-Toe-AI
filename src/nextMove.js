@@ -4,6 +4,10 @@ import {evaluate} from "./evaluate.js";
 import { human } from "./human.js";
 import { computer } from "./computer.js";
 
+/**
+ * Make the best moves by checking every move and calling the minimax function.
+ * @param {2d array} board current position of a 3x3 tic-tac-toe board
+ */
 export function nextMove(board) {
   if (isFull(board)) {
     return;
@@ -41,6 +45,12 @@ export function nextMove(board) {
   board[bestMoveRow][bestMoveColumn] = computer;
 }
 
+/**
+ * Returns the evaluation of a position.
+ * @param {2d array} board current postiion of the 3x3 tic-tac-toe board
+ * @param {number} depth depth of the tree
+ * @param {boolean} isMinimizing if it is the minimizing player's (human) turn
+ */
 function minimax(board, depth, isMinimizing) {
   if (calculateWinner(board) !== "TIE" || isFull(board)) {
     return evaluate(board) - depth;
