@@ -60,7 +60,7 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      humanFirst: true,
+      humanFirst: false,
     }
   }
 
@@ -95,11 +95,13 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
+      humanFirst: !this.state.humanFirst,
     });
   }
 
   render() {
     const squares = this.state.squares;
+
     const winner = calculateWinner(squares);
 
     let replayBtn;

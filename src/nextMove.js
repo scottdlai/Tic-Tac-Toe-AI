@@ -13,7 +13,7 @@ export function nextMove(board) {
   let bestMoveRow;
   let bestMoveColumn;
   let score;
-
+  
   for (let row = 0; row < 3; row++) {
 
     for (let column = 0; column < 3; column++) {
@@ -30,8 +30,8 @@ export function nextMove(board) {
           bestMoveColumn = column;
         } else if (score === bestMoveEval) {
           let n = Math.random();
-          bestMoveRow = n < 0.5 ? row : bestMoveRow;
-          bestMoveColumn = n < 0.5 ? column : bestMoveColumn;
+          bestMoveRow = n < 0.35 ? row : bestMoveRow;
+          bestMoveColumn = n < 0.35 ? column : bestMoveColumn;
         }
       }
     }
