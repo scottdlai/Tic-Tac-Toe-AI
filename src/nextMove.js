@@ -5,6 +5,10 @@ import { human } from "./human.js";
 import { computer } from "./computer.js";
 
 export function nextMove(board) {
+  if (isFull(board)) {
+    return;
+  }
+
   let bestMoveEval = -Infinity;
   let bestMoveRow;
   let bestMoveColumn;
@@ -24,6 +28,10 @@ export function nextMove(board) {
           bestMoveEval = score;
           bestMoveRow = row;
           bestMoveColumn = column;
+        } else if (score === bestMoveEval) {
+          let n = Math.random();
+          bestMoveRow = n < 0.5 ? row : bestMoveRow;
+          bestMoveColumn = n < 0.5 ? column : bestMoveColumn;
         }
       }
     }
@@ -35,7 +43,7 @@ export function nextMove(board) {
 
 function minimax(board, depth, isMinimizing) {
   if (calculateWinner(board) !== "TIE" || isFull(board)) {
-    return evaluate(board);
+    return evaluate(board) - depth;
   }
 
   let bestEval;

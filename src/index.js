@@ -60,7 +60,7 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      humanNext: true,
+      humanFirst: true,
     }
   }
 
@@ -83,12 +83,9 @@ class Game extends React.Component {
 
     this.setState({
       squares: squares,
-      humanNext: !this.state.humanNext,
     });
-
-    if (!isFull(squares)) {
-      nextMove(squares);
-    }
+    
+    nextMove(squares);
   }
 
   clearBoard() {
@@ -98,7 +95,6 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      humanNext: false,
     });
   }
 
@@ -116,7 +112,7 @@ class Game extends React.Component {
         REPLAY
         </button>
     } else {
-      status = 'Next Player: ' + (this.state.humanNext ? 'X' : 'O');
+      status = 'Next Player: ' + (this.state.humanFirst ? 'X' : 'O');
     }
 
     return (
