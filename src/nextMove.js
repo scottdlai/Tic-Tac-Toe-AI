@@ -84,7 +84,7 @@ function minimax(board, depth, isMinimizing, alpha, beta) {
         if (isMinimizing) {
           beta = min(bestEval, beta);
         } else {
-          alpha = max(bestEval, alpha)
+          alpha = max(bestEval, alpha);
         }
 
         if (alpha >= beta) {
