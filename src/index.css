@@ -64,3 +64,18 @@ body {
   transition-duration: 0.5s;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+
+  .game-board {
+    padding-left: 22.5vw;
+  }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+  .game-board {
+    padding-left: 16.5vw;
+  }
+}
