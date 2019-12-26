@@ -71,6 +71,16 @@ body {
   outline: none;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #13669c;
+  color: white;
+  text-align: center;
+}
+
 /* For iPhone 6+/7+/8+ */
 @media only screen and (max-width: 600px) {
 

@@ -129,10 +129,25 @@ class Game extends React.Component {
   }
 }
 
+class Footer extends React.Component {
+
+  render() {
+
+    return (
+      <div className="footer">
+        <p>Made by Scott Lai</p>
+      </div>
+    );
+  }
+}
+
 // ========================================
 
 ReactDOM.render(
-  <Game />,
+  <>
+    <Game />
+    <Footer />
+  </>,
   document.getElementById('root')
 );
 
