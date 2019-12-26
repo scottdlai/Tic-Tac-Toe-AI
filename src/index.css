@@ -9,10 +9,6 @@ body {
   display: table;
 }
 
-.game-board {
-  padding-left: 34.5vw;
-}
-
 .status {
   margin-bottom: 10px;
   font-size: xx-large;
@@ -21,7 +17,6 @@ body {
 .square {
   background-color: #fff;
   border: 1px solid #999;
-  font-size: 4.5vmax;
   font-weight: bolder;
   height: 10vmax;
   width: 10vmax;
@@ -89,21 +84,17 @@ body {
   color: white;
 }
 
-/* For iPhone 6+/7+/8+ */
-@media only screen and (max-width: 600px) {
-
-  .game-board {
-    padding-left: 22.5vw;
-  }
-
-  .square {
-    font-size: 3.75vmax;
-  }
-
+/* For iPhone 6/7/8 */
+.game-board {
+  padding-left: 22.5vw;
 }
 
-/* For iPhone 6/7/8 */
-@media only screen and (max-width: 400px) {
+.square {
+  font-size: 3.75vmax;
+}
+
+/* For iPhone 6+/7+/8+ */
+@media only screen and (min-width: 500px) {
 
   .game-board {
     padding-left: 22.5vw;
@@ -112,15 +103,27 @@ body {
   .square {
     font-size: 3.75vmax;
   }
+
 }
 
 /* For iPhone XR */
-@media only screen and (max-width: 896px) {
+@media only screen and (min-width: 800px) {
   .game-board {
     padding-left: 18vw;
   }
 
   .square {
     font-size: 3.75vmax;
+  }
+}
+
+/* For Desktop */
+@media only screen and (min-width: 1000px) {
+  .game-board {
+    padding-left: 34.5vw;
+  }
+
+  .square {
+    font-size: 4.5vmax;
   }
 }
