@@ -109,10 +109,10 @@ body {
 /* For iPhone XR */
 @media only screen and (max-width: 896px) {
   .game-board {
-    padding-left: 25vw;
+    padding-left: 22.5vw;
   }
 
   .square {
-    font-size: 4vmax;
+    font-size: 3.75vmax;
   }
 }
