@@ -82,7 +82,7 @@ class Game extends React.Component {
     this.setState({
       squares: squares,
     });
-    
+
     nextMove(squares);
   }
 
@@ -135,7 +135,11 @@ class Footer extends React.Component {
 
     return (
       <div className="footer">
-        <p>Made by Scott Lai</p>
+        <p>
+          <a href="https://github.com/tuonglai3602/Tic-Tac-Toe-AI">
+            Made by Scott Lai
+          </a>
+        </p>
       </div>
     );
   }

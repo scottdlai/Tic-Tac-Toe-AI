@@ -77,8 +77,16 @@ body {
   bottom: 0;
   width: 100%;
   background-color: #13669c;
-  color: white;
   text-align: center;
+  font-weight: bolder;
+}
+
+.footer a {
+  color: white;
+}
+
+.footer a:visited {
+  color: white;
 }
 
 /* For iPhone 6+/7+/8+ */
