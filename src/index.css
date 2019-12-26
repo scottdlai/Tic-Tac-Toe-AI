@@ -72,7 +72,7 @@ body {
 @media only screen and (max-width: 600px) {
 
   .game-board {
-    padding-left: 30vw;
+    padding-left: 22.5vw;
   }
 
 }
@@ -80,6 +80,6 @@ body {
 @media only screen and (max-width: 400px) {
 
   .game-board {
-    padding-left: 16.5vw;
+    padding-left: 22.5vw;
   }
 }
