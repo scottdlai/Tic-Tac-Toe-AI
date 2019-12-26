@@ -27,6 +27,7 @@ body {
   width: 10vmax;
   text-align: center;
   float: left;
+  line-height: 10vmax;
 }
 
 .square:focus {
@@ -69,17 +70,19 @@ body {
   outline: none;
 }
 
+/* For iPhone 6+/7+/8+ */
 @media only screen and (max-width: 600px) {
 
   .game-board {
     padding-left: 22.5vw;
   }
-
 }
 
+/* For iPhone 6/7/8 */
 @media only screen and (max-width: 400px) {
 
   .game-board {
     padding-left: 22.5vw;
   }
+
 }
