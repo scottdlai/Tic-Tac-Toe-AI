@@ -25,7 +25,7 @@ export function nextMove(board) {
       if (!board[row][column]) {
         board[row][column] = computer;
 
-        score = minimax(board, 0, true);
+        score = minimax(board, 0, true, -Infinity, Infinity);
         board[row][column] = ""
 
         if (score > bestMoveEval) {
@@ -50,8 +50,12 @@ export function nextMove(board) {
  * @param {2d array} board current postiion of the 3x3 tic-tac-toe board
  * @param {number} depth depth of the tree
  * @param {boolean} isMinimizing if it is the minimizing player's (human) turn
+ * @param {number} alpha the minimum score the maximizing player (computer) is
+ *  guaranteed to have
+ * @param {number} beta the maximum score the minimizing player (human) is
+ *  guaranteed to have
  */
-function minimax(board, depth, isMinimizing) {
+function minimax(board, depth, isMinimizing, alpha, beta) {
   if (calculateWinner(board) !== "TIE" || isFull(board)) {
     let evaluation = evaluate(board);
     evaluation += evaluation > 0 ? -depth : depth;
@@ -69,10 +73,15 @@ function minimax(board, depth, isMinimizing) {
 
         if (!board[row][column]) {
           board[row][column] = human;
-          let score = minimax(board, depth + 1, false);
+          let score = minimax(board, depth + 1, false, alpha, beta);
           board[row][column] = "";
 
           bestEval = min(bestEval, score);
+          beta = min(bestEval, beta);
+
+          if (alpha >= beta) {
+            break;
+          }
         }
       }
     }
@@ -85,10 +94,15 @@ function minimax(board, depth, isMinimizing) {
 
         if (!board[row][column]) {
           board[row][column] = computer;
-          let score = minimax(board, depth + 1, true);
+          let score = minimax(board, depth + 1, true, alpha, beta);
           board[row][column] = "";
 
           bestEval = max(bestEval, score);
+          alpha = max(bestEval, alpha);
+
+          if (alpha >= beta) {
+            break;
+          }
         }
       }
     }
