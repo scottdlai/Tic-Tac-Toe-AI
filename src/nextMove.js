@@ -53,7 +53,10 @@ export function nextMove(board) {
  */
 function minimax(board, depth, isMinimizing) {
   if (calculateWinner(board) !== "TIE" || isFull(board)) {
-    return evaluate(board) - depth;
+    let evaluation = evaluate(board);
+    evaluation += evaluation > 0 ? -depth : depth;
+
+    return evaluation;
   }
 
   let bestEval;
