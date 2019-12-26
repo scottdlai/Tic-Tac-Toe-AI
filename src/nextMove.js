@@ -66,43 +66,29 @@ function minimax(board, depth, isMinimizing, alpha, beta) {
   let bestEval;
   if (isMinimizing) {
     bestEval = Infinity;
-
-    for (let row = 0; row < 3; row++) {
-
-      for (let column = 0; column < 3; column++) {
-
-        if (!board[row][column]) {
-          board[row][column] = human;
-          let score = minimax(board, depth + 1, false, alpha, beta);
-          board[row][column] = "";
-
-          bestEval = min(bestEval, score);
-          beta = min(bestEval, beta);
-
-          if (alpha >= beta) {
-            break;
-          }
-        }
-      }
-    }
   } else {
     bestEval = -Infinity;
+  }
 
-    for (let row = 0; row < 3; row++) {
+  for (let row = 0; row < 3; row++) {
 
-      for (let column = 0; column < 3; column++) {
+    for (let column = 0; column < 3; column++) {
 
-        if (!board[row][column]) {
-          board[row][column] = computer;
-          let score = minimax(board, depth + 1, true, alpha, beta);
-          board[row][column] = "";
+      if (!board[row][column]) {
+        board[row][column] = isMinimizing ? human : computer;
+        let score = minimax(board, depth + 1, !isMinimizing, alpha, beta);
+        board[row][column] = "";
 
-          bestEval = max(bestEval, score);
-          alpha = max(bestEval, alpha);
+        bestEval = isMinimizing ? min(bestEval, score) : max(bestEval, score);
 
-          if (alpha >= beta) {
-            break;
-          }
+        if (isMinimizing) {
+          beta = min(bestEval, beta);
+        } else {
+          alpha = max(bestEval, alpha)
+        }
+
+        if (alpha >= beta) {
+          break;
         }
       }
     }
