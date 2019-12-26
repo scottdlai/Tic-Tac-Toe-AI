@@ -91,7 +91,7 @@ body {
   .square {
     font-size: 3.75vmax;
   }
-  
+
 }
 
 /* For iPhone 6/7/8 */
@@ -103,5 +103,16 @@ body {
 
   .square {
     font-size: 3.75vmax;
+  }
+}
+
+/* For iPhone XR */
+@media only screen and (max-width: 900px) {
+  .game-board {
+    padding-left: 25vw;
+  }
+
+  .square {
+    font-size: 4vmax;
   }
 }
