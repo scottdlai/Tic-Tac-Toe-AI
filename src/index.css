@@ -65,10 +65,14 @@ body {
   cursor: pointer;
 }
 
+.replay:focus {
+  outline: none;
+}
+
 @media only screen and (max-width: 600px) {
 
   .game-board {
-    padding-left: 25vw;
+    padding-left: 30vw;
   }
 
 }
