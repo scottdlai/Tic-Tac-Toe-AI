@@ -86,4 +86,7 @@ body {
     padding-left: 22.5vw;
   }
 
+  .square {
+    font-size: 3vmax;
+  }
 }
