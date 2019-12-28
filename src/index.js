@@ -6,7 +6,6 @@ import { isFull } from './isFull.js';
 import { nextMove } from "./nextMove.js";
 import { human } from "./human.js";
 import { computer } from "./computer.js";
-import 'font-awesome/css/font-awesome.min.css';
 
 
 function Square(props) {
@@ -74,7 +73,7 @@ class Game extends React.Component {
     if (calculateWinner(squares) !== "TIE" || isFull(squares)) {
       return (
         <button onClick={() => this.clearBoard()}>
-          REPLAY <i className="fa fa-redo"></i>
+          REPLAY
         </button>
       );
     }
