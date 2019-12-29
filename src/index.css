@@ -51,16 +51,19 @@ body {
   width: 100%;
 }
 
-.replay {
+.play-button {
   margin-top: 18px;
-  background-color: #F48F10;
-  color: white;
   border: none;
   font-size: 18px;
   text-align: center;
   font-weight: bolder;
   padding: 16px 20px;
   border-radius: 6px;
+  color: white;
+}
+
+.replay {
+  background-color: #F48F10;
 }
 
 .replay:hover {
@@ -69,7 +72,17 @@ body {
   cursor: pointer;
 }
 
-.replay:focus {
+.AI-play-first {
+  background-color: green;
+}
+
+.AI-play-first:hover {
+  background-color: rgb(0, 110, 0);
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.play-button:focus {
   outline: none;
 }
 
