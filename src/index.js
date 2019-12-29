@@ -59,7 +59,6 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      humanFirst: true,
       gameStart: true,
     }
   }
@@ -83,6 +82,7 @@ class Game extends React.Component {
 
     this.setState({
       squares: squares,
+      gameStart: false,
     });
 
     nextMove(squares);
@@ -95,33 +95,44 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      humanFirst: !this.state.humanFirst,
       gameStart: true,
+    });
+  }
+
+  AIplayFirst() {
+    if (!this.state.gameStart) {
+      return;
+    }
+
+    nextMove(this.state.squares);
+    this.setState({
+      squares: this.state.squares,
+      gameStart: false,
     });
   }
 
   render() {
     const squares = this.state.squares;
+    const gameStart = this.state.gameStart;
 
-    if (this.state.gameStart && !this.state.humanFirst) {
-      nextMove(squares);
-      this.setState({
-        squares: squares,
-        gameStart: false,
-      });
-    }
+    let playBtnClass = "play-button " + (gameStart ? "AI-play-first" : "");
 
-    const winner = calculateWinner(squares);
-
-    let replayBtn;
+    let playBtn = <button onClick={() => this.AIplayFirst()} 
+                      className={playBtnClass}>
+                      START WITH AI
+                    </button>;
 
     let status = "Tic-Tac-Toe";
 
+    const winner = calculateWinner(squares);
+
     if (winner !== "TIE" || isFull(squares)) {
       status = "Winner: " + winner;
-      replayBtn = <button onClick={() => this.clearBoard()} className="replay">
-        REPLAY
-        </button>
+      playBtnClass = "play-button replay";
+      playBtn = <button onClick={() => this.clearBoard()}
+                  className={playBtnClass}>
+                    REPLAY THE GAME
+                  </button>
     }
 
     return (
@@ -133,7 +144,7 @@ class Game extends React.Component {
             onClick={(row, column) => this.handleClick(row, column)}
           />
         </div>
-        <>{replayBtn}</>
+        <>{playBtn}</>
       </div>
     );
   }
