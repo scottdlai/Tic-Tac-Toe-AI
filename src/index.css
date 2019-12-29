@@ -52,14 +52,16 @@ body {
 }
 
 .play-button {
+  display: inline-block;
   margin-top: 18px;
   border: none;
-  font-size: 18px;
+  font-size: large;
   text-align: center;
   font-weight: bolder;
-  padding: 16px 20px;
   border-radius: 6px;
   color: white;
+  width: 10vmax;
+  height: 4vmax;
 }
 
 .replay {
