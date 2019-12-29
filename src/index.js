@@ -59,7 +59,7 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      gameStart: true,
+      firstMove: true,
     }
   }
 
@@ -82,7 +82,7 @@ class Game extends React.Component {
 
     this.setState({
       squares: squares,
-      gameStart: false,
+      firstMove: false,
     });
 
     nextMove(squares);
@@ -95,27 +95,27 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      gameStart: true,
+      firstMove: true,
     });
   }
 
   AIplayFirst() {
-    if (!this.state.gameStart) {
+    if (!this.state.firstMove) {
       return;
     }
 
     nextMove(this.state.squares);
     this.setState({
       squares: this.state.squares,
-      gameStart: false,
+      firstMove: false,
     });
   }
 
   render() {
     const squares = this.state.squares;
-    const gameStart = this.state.gameStart;
+    const firstMove = this.state.firstMove;
 
-    let playBtnClass = "play-button " + (gameStart ? "AI-play-first" : "");
+    let playBtnClass = "play-button " + (firstMove ? "AI-play-first" : "");
 
     let playBtn = <button onClick={() => this.AIplayFirst()} 
                       className={playBtnClass}>
