@@ -119,8 +119,8 @@ class Game extends React.Component {
 
     let playBtn = <button onClick={() => this.AIplayFirst()} 
                       className={playBtnClass}>
-                      START WITH AI
-                    </button>;
+                      START
+                  </button>;
 
     let status = "Tic-Tac-Toe";
 
@@ -131,7 +131,7 @@ class Game extends React.Component {
       playBtnClass = "play-button replay";
       playBtn = <button onClick={() => this.clearBoard()}
                   className={playBtnClass}>
-                    REPLAY THE GAME
+                    REPLAY
                   </button>
     }
 
