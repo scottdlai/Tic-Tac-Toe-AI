@@ -50,9 +50,9 @@ export function nextMove(board) {
  * @param {2d array} board current postiion of the 3x3 tic-tac-toe board
  * @param {number} depth depth of the tree
  * @param {boolean} isMinimizing if it is the minimizing player's (human) turn
- * @param {number} alpha the minimum score the maximizing player (computer) is
+ * @param {number} alpha the best score the maximizing player (computer) is
  *  guaranteed to have
- * @param {number} beta the maximum score the minimizing player (human) is
+ * @param {number} beta the best score the minimizing player (human) is
  *  guaranteed to have
  */
 function minimax(board, depth, isMinimizing, alpha, beta) {
@@ -64,11 +64,7 @@ function minimax(board, depth, isMinimizing, alpha, beta) {
   }
 
   let bestEval;
-  if (isMinimizing) {
-    bestEval = Infinity;
-  } else {
-    bestEval = -Infinity;
-  }
+  bestEval = isMinimizing ? Infinity : -Infinity;
 
   for (let row = 0; row < 3; row++) {
 
@@ -94,13 +90,23 @@ function minimax(board, depth, isMinimizing, alpha, beta) {
     }
   }
 
-  return bestEval
+  return bestEval;
 }
 
+/**
+ * Returns the minimum value between a and b. If a = b, then returns b.
+ * @param {number} a 
+ * @param {number} b 
+ */
 function min(a, b) {
   return a < b ? a : b;
 }
 
+/**
+ * Returns the maximum value between a and b. If a = b, then returns b.
+ * @param {number} a 
+ * @param {number} b 
+ */
 function max(a, b) {
   return a > b ? a : b;
 } 
