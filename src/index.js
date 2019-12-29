@@ -59,7 +59,6 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      firstMove: true,
     }
   }
 
@@ -82,7 +81,6 @@ class Game extends React.Component {
 
     this.setState({
       squares: squares,
-      firstMove: false,
     });
 
     nextMove(squares);
@@ -95,32 +93,12 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
-      firstMove: true,
-    });
-  }
-
-  AIplayFirst() {
-    if (!this.state.firstMove) {
-      return;
-    }
-
-    nextMove(this.state.squares);
-    this.setState({
-      squares: this.state.squares,
-      firstMove: false,
     });
   }
 
   render() {
     const squares = this.state.squares;
-    const firstMove = this.state.firstMove;
-
-    let playBtnClass = "play-button " + (firstMove ? "AI-play-first" : "");
-
-    let playBtn = <button onClick={() => this.AIplayFirst()} 
-                      className={playBtnClass}>
-                      START
-                  </button>;
+    let playBtn;
 
     let status = "Tic-Tac-Toe";
 
@@ -128,9 +106,8 @@ class Game extends React.Component {
 
     if (winner !== "TIE" || isFull(squares)) {
       status = "Winner: " + winner;
-      playBtnClass = "play-button replay";
       playBtn = <button onClick={() => this.clearBoard()}
-                  className={playBtnClass}>
+                  className="replay">
                     REPLAY
                   </button>
     }

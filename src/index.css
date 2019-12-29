@@ -51,41 +51,23 @@ body {
   width: 100%;
 }
 
-.play-button {
-  display: inline-block;
-  margin-top: 18px;
-  border: none;
-  font-size: large;
-  text-align: center;
-  font-weight: bolder;
-  border-radius: 6px;
-  color: white;
-  width: 10vmax;
-  height: 4vmax;
-}
 
 .replay {
   background-color: #F48F10;
+  margin-top: 18px;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bolder;
+  border-radius: 6px;
+  padding: 16px 20px;
+  color: white;
 }
 
 .replay:hover {
   background-color: #C06D04;
   transition-duration: 0.5s;
   cursor: pointer;
-}
-
-.AI-play-first {
-  background-color: green;
-}
-
-.AI-play-first:hover {
-  background-color: rgb(0, 110, 0);
-  transition-duration: 0.5s;
-  cursor: pointer;
-}
-
-.play-button:focus {
-  outline: none;
 }
 
 .footer {
