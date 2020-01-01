@@ -9,11 +9,12 @@ import { computer } from "./computer.js";
 
 
 function Square(props) {
-  const squareClass = "square " + (props.value === human ? human : computer);
+  const squareClass = "square " + (props.value ? "" : "hoverable ")
+    + (props.value === human ? human : computer);
 
   return (
     <button className={squareClass} onClick={props.onClick}>
-      {props.value}
+      <span>{props.value}</span>
     </button>
   );
 }
