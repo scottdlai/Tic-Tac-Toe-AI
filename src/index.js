@@ -60,6 +60,8 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
+      humanFirst: true,
+      gameStart: true,
     }
   }
 
@@ -82,6 +84,7 @@ class Game extends React.Component {
 
     this.setState({
       squares: squares,
+      gameStart: false,
     });
 
     nextMove(squares);
@@ -94,6 +97,8 @@ class Game extends React.Component {
         ["", "", ""],
         ["", "", ""]
       ],
+      humanFirst: !this.state.humanFirst,
+      gameStart: true,
     });
   }
 
@@ -104,6 +109,14 @@ class Game extends React.Component {
     let status = "Tic-Tac-Toe";
 
     const winner = calculateWinner(squares);
+
+    if (this.state.gameStart && !this.state.humanFirst) {
+      nextMove(squares);
+      this.setState({
+        squares: squares,
+        gameStart: false,
+      });
+    }
 
     if (winner !== "TIE" || isFull(squares)) {
       status = "Winner: " + winner;
