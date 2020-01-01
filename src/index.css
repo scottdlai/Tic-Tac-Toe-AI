@@ -37,6 +37,16 @@ body {
   outline: none;
 }
 
+.hoverable:hover span {
+  display: none;
+}
+
+.hoverable:hover::before {
+  content: "X";
+  color: #E60F31;
+  opacity: 0.6;
+}
+
 .X {
   color: #E60F31;
 }
