@@ -1,5 +1,8 @@
 A program that can always win or draw a 3x3 tic-tac-toe game. This was implemented using the minimax algorithm as well as Alplha-Beta pruning to speed up the process. This User Interface was built using React.js.
 
+# Structure
+You can find all the functions of the algorithms inside `nextMove.js` inside the `src` folder. All the React components are inside index.js as I followed React.js tutorial on their website at first.
+
 # Hosting
 This project is hosted on Netlify. Check the game out at https://scottlai.codes
 
