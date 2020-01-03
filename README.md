@@ -1,16 +1,16 @@
 A program that can always win or draw a 3x3 tic-tac-toe game. This was implemented using the minimax algorithm as well as Alplha-Beta pruning to speed up the process.  
 
-#Hosting
+# Hosting
 This project is hosted on Netlify. Check the game out at https://scottlai.codes
 
-#Local Installation
+# Local Installation
 This project uses create-react-app, so you'll need to install [npm] (https://nodejs.org/en/)
 
 1. Change your directory into the project folder and type `npm install` in your terminal / command line
 
 2. Run `npm start` and the website is hosted on port 3000 (localhost:3000)
 
-#Credit
+# Credit
 I learnt about the minimax algorithm and alpha-beta pruning technique through YouTube and Wikipedia. I also used React tutorial on the website for the initial board. However, I have modified the code as I progressed the project.
 
 * Sebastian Lague: https://www.youtube.com/watch?v=l-hh51ncgDI
