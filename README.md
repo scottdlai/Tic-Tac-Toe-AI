@@ -1,4 +1,4 @@
-A program that can always win or draw a 3x3 tic-tac-toe game. This was implemented using the minimax algorithm as well as Alplha-Beta pruning to speed up the process.  
+A program that can always win or draw a 3x3 tic-tac-toe game. This was implemented using the minimax algorithm as well as Alplha-Beta pruning to speed up the process. This User Interface was built using React.js.
 
 # Hosting
 This project is hosted on Netlify. Check the game out at https://scottlai.codes
