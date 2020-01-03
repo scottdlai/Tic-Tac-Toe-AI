@@ -4,7 +4,7 @@ A program that can always win or draw a 3x3 tic-tac-toe game. This was implement
 This project is hosted on Netlify. Check the game out at https://scottlai.codes
 
 # Local Installation
-This project uses create-react-app, so you'll need to install [npm] (https://nodejs.org/en/)
+This project uses create-react-app, so you'll need to install [npm](https://nodejs.org/en/)
 
 1. Change your directory into the project folder and type `npm install` in your terminal / command line
 
